@@ -1,0 +1,2 @@
+# BlurBG.js
+Blur background
