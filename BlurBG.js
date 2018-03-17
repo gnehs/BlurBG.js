@@ -24,14 +24,23 @@ function blurImg(Img_source, Img_filter, CSS_class) {
     img.setAttribute('crossOrigin', 'anonymous');
     img.src = Img_source;
     img.onload = function() {
-        imgHeight = img.height;
-        imgWidth = img.width;
-        canvas.setAttribute('width', imgWidth / 4);
-        canvas.setAttribute('height', imgHeight / 4);
+        if (img.width > 4000 && img.height > 2000) {
+
+            var imgHeight = img.height / 4
+            var imgWidth = img.width / 4
+        } else if (img.width > 1000 && img.height > 500) {
+            var imgHeight = img.height / 6
+            var imgWidth = img.width / 6
+        } else {
+            var imgHeight = img.height
+            var imgWidth = img.width
+        }
+        canvas.setAttribute('width', imgWidth);
+        canvas.setAttribute('height', imgHeight);
         // Blur
         var ctx = canvas.getContext('2d');
         ctx.filter = Img_filter;
-        ctx.drawImage(img, 0, 0, imgWidth / 4, imgHeight / 4);
+        ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
         // Base64
         var PngBase64 = canvas.toDataURL();
         // 產生 Style 供套用
