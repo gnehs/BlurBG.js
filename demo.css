@@ -8,7 +8,7 @@ body {
     background-color: #FFFFFF;
     background-size: cover;
     background-attachment: fixed;
-    width: 512px;
+    max-width: 512px;
     min-height: 100px;
     margin-top: calc(50vh - 100px);
     margin-left: auto;
