@@ -13,6 +13,6 @@ BlurBG(img,[filter, class])
 ```
 - `img` 為圖片路徑
 - `filter` 為圖片濾鏡，預設是 `blur(5px) opacity(50%)` ，應該跟 CSS 的差不多啦
-- `class` 為圖片 `class` ，預設是 `BlurBG` 將所有套入此 class 的元素加入模糊後的背景
+- `class` 為圖片 `class` ，預設是 `BlurBG` ，會將所有套入此 class 的元素加入模糊後的背景
 ## Demo
-製作中
+[Demo](https://gnehs.github.io/BlurBG.js/demo.html)
