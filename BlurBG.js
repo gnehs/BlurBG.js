@@ -25,11 +25,11 @@ function blurImg(Img_source, Img_filter, CSS_class) {
     img.src = Img_source;
     img.onload = function() {
         if (img.width > 4000 && img.height > 2000) {
-            var imgHeight = img.height / 6
-            var imgWidth = img.width / 6
+            var imgHeight = img.height / 5
+            var imgWidth = img.width / 5
         } else if (img.width > 1000 && img.height > 500) {
-            var imgHeight = img.height / 4
-            var imgWidth = img.width / 4
+            var imgHeight = img.height / 2
+            var imgWidth = img.width / 2
         } else {
             var imgHeight = img.height
             var imgWidth = img.width
