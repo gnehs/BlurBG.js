@@ -1,7 +1,7 @@
 function BlurBG(Img_source, Img_filter, CSS_class) {
 
     //整理拿到的數據，沒有的話給預設值
-    Img_filter = Img_filter || "blur(5px) opacity(50%)";
+    Img_filter = Img_filter || "blur(5px) opacity(40%)";
     CSS_class = CSS_class || "BlurBG";
 
     //看看 sessionStorage 有沒有圖片
@@ -24,19 +24,12 @@ function blurImg(Img_source, Img_filter, CSS_class) {
     img.setAttribute('crossOrigin', 'anonymous');
     img.src = Img_source;
     img.onload = function() {
-        if (img.width > 4000 && img.height > 2000) {
-            var imgHeight = img.height / 5
-            var imgWidth = img.width / 5
-        } else if (img.width > 1000 && img.height > 500) {
-            var imgHeight = img.height / 2
-            var imgWidth = img.width / 2
-        } else {
-            var imgHeight = img.height
-            var imgWidth = img.width
-        }
+        var imgHeight = 800
+        var imgWidth = 800 * (img.width / img.height)
         canvas.setAttribute('width', imgWidth);
         canvas.setAttribute('height', imgHeight);
-        // Blur
+        console.log(canvas)
+            // Blur
         var ctx = canvas.getContext('2d');
         ctx.filter = Img_filter;
         ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
@@ -51,7 +44,6 @@ function blurImg(Img_source, Img_filter, CSS_class) {
 }
 
 function createClass(img, CSS_class, Img_filter) {
-    console.log(Img_filter)
     var css = '.' + CSS_class + '{background-image:url(' + img + ');'
 
     var createClass = document.createElement("style");
