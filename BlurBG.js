@@ -5,8 +5,8 @@ function BlurBG(Img_source, Img_filter, CSS_class) {
     CSS_class = CSS_class || "BlurBG";
 
     //看看 sessionStorage 有沒有圖片
-    if (window.sessionStorage["Blur_" + Img_source] && window.sessionStorage["filter_" + b64EncodeUnicode(Img_source)] == Img_filter) {
-        createClass(window.sessionStorage["Blur_" + b64EncodeUnicode(Img_source)], CSS_class, Img_filter)
+    if (window.sessionStorage[b64EncodeUnicode("Blur_" + Img_source)] && window.sessionStorage[b64EncodeUnicode("filter_" + Img_source)] == Img_filter) {
+        createClass(window.sessionStorage[b64EncodeUnicode("Blur_" + Img_source)], CSS_class, Img_filter)
     } else {
         blurImg(Img_source, Img_filter, CSS_class)
     }
@@ -24,12 +24,11 @@ function blurImg(Img_source, Img_filter, CSS_class) {
     img.setAttribute('crossOrigin', 'anonymous');
     img.src = Img_source;
     img.onload = function() {
-        var imgHeight = 800
-        var imgWidth = 800 * (img.width / img.height)
+        var imgHeight = 700
+        var imgWidth = 700 * (img.width / img.height)
         canvas.setAttribute('width', imgWidth);
         canvas.setAttribute('height', imgHeight);
-        console.log(canvas)
-            // Blur
+        // Blur
         var ctx = canvas.getContext('2d');
         ctx.filter = Img_filter;
         ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
@@ -38,8 +37,8 @@ function blurImg(Img_source, Img_filter, CSS_class) {
         // 產生 Style 供套用
         createClass(PngBase64, CSS_class, Img_filter);
         // 存到 sessionStorage
-        window.sessionStorage["Blur_" + b64EncodeUnicode(Img_source)] = PngBase64;
-        window.sessionStorage["filter_" + b64EncodeUnicode(Img_source)] = Img_filter; //如果這個參數不同，將重新產生圖片
+        window.sessionStorage[b64EncodeUnicode("Blur_" + Img_source)] = PngBase64;
+        window.sessionStorage[b64EncodeUnicode("filter_" + Img_source)] = Img_filter; //如果這個參數不同，將重新產生圖片
     };
 }
 
