@@ -35,7 +35,7 @@ function BlurBG(Img_source, Img_filter, CSS_class) {
         ctx.filter = Img_filter;
         ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
         // 產生 Style 供套用
-        var PngBase64 = canvas.toDataURL();
+        var PngBase64 = canvas.toDataURL("image/png");
         var css = '.' + CSS_class + '{background-image:url(' + PngBase64 + ')}'
 
         var createClass = document.createElement("style");

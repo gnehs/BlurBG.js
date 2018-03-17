@@ -18,3 +18,10 @@ body {
     box-shadow: 0 2px 11px #00000047;
     transition: all 0.1s linear;
 }
+
+#hello h3 {
+    font-size: 26px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 80px;
+}
