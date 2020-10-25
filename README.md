@@ -1,3 +1,6 @@
+現在你可以使用 CSS 的 [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter) 輕易達成此效果，無需依賴此程式了！
+
+---
 # BlurBG.js
 這是個能讓你輕鬆模糊圖片的羽量級 js
 ## 原理
